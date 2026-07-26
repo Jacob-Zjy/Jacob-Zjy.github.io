@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赵建亚 | Jianya Zhao - 个人主页</title>
+    <meta name="description" content="赵建亚的个人学术主页 - 暨南大学经济统计学本科生，上海交通大学公共卫生与预防医学硕士研究生（拟录取）">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #333333;
+            --text-light: #666666;
+            --link: #2a7ae2;
+            --link-hover: #1a5ab8;
+            --border: #e8e8e8;
+            --sidebar-bg: #f9fafb;
+            --badge-bg: #00369f;
+            --badge-text: #ffffff;
+            --anchor-color: #494e52;
+            --masthead-bg: #ffffff;
+            --highlight: #f0f7ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background: var(--bg);
+            font-size: 16px;
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: none;
+        }
+        a:hover {
+            color: var(--link-hover);
+            text-decoration: underline;
+        }
+
+        /* ====== Masthead / Navigation ====== */
+        .masthead {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background: var(--masthead-bg);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        }
+        .masthead__inner-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2em;
+        }
+        .greedy-nav {
+            display: flex;
+            align-items: center;
+            min-height: 3.5em;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .greedy-nav a {
+            display: inline-block;
+            padding: 0.6em 1em;
+            font-size: 0.9em;
+            font-weight: 500;
+            color: var(--anchor-color);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .greedy-nav a:hover,
+        .greedy-nav a.active {
+            color: var(--link);
+            border-bottom-color: var(--link);
+            text-decoration: none;
+        }
+        .masthead__menu-home-item a {
+            font-weight: 700;
+            font-size: 1em;
+            color: #333;
+        }
+
+        /* ====== Main Layout ====== */
+        #main {
+            max-width: 1200px;
+            margin: 2em auto;
+            padding: 0 2em;
+            display: flex;
+            gap: 2.5em;
+        }
+
+        /* ====== Sidebar ====== */
+        .sidebar {
+            flex: 0 0 280px;
+            position: sticky;
+            top: 5em;
+            align-self: flex-start;
+        }
+        .profile_box {
+            background: var(--sidebar-bg);
+            border-radius: 8px;
+            padding: 1.8em 1.5em;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        .author__avatar {
+            width: 160px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            margin-bottom: 1.2em;
+        }
+        .author__name {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 0.3em;
+            color: #222;
+        }
+        .author__name_en {
+            font-size: 0.9em;
+            font-weight: 400;
+            color: var(--text-light);
+            margin-bottom: 0.6em;
+        }
+        .author__bio {
+            font-size: 0.88em;
+            color: var(--text-light);
+            margin-bottom: 1em;
+            line-height: 1.5;
+        }
+        .author__urls {
+            list-style: none;
+            text-align: left;
+            font-size: 0.85em;
+            line-height: 2;
+        }
+        .author__urls li i {
+            width: 1.4em;
+            text-align: center;
+            color: var(--text-light);
+        }
+        .author__urls li a {
+            color: var(--link);
+        }
+        .author__urls_sm {
+            display: flex;
+            justify-content: center;
+            gap: 0.8em;
+            margin-top: 1em;
+            flex-wrap: wrap;
+        }
+        .author__urls_sm a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #e9ecef;
+            color: #495057;
+            font-size: 1em;
+            transition: all 0.2s;
+        }
+        .author__urls_sm a:hover {
+            background: var(--link);
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* ====== Content ====== */
+        .page {
+            flex: 1;
+            min-width: 0;
+        }
+        .page__content {
+            font-size: 0.95em;
+        }
+        .page__content h1 {
+            font-size: 1.6em;
+            margin: 1.5em 0 0.8em;
+            padding-bottom: 0.3em;
+            border-bottom: 2px solid var(--border);
+            color: #222;
+        }
+        .page__content h1:first-child {
+            margin-top: 0;
+        }
+        .page__content h2 {
+            font-size: 1.2em;
+            margin: 1.2em 0 0.6em;
+            color: #333;
+        }
+
+        /* ====== Anchor offset for sticky nav ====== */
+        .anchor {
+            display: block;
+            position: relative;
+            top: -4.5em;
+            visibility: hidden;
+        }
+
+        /* ====== News / Timeline lists ====== */
+        .news-list,
+        .pub-list,
+        .award-list,
+        .edu-list,
+        .talk-list,
+        .intern-list,
+        .project-list {
+            list-style: none;
+        }
+        .news-list li,
+        .pub-list > li,
+        .award-list li,
+        .edu-list li,
+        .talk-list li,
+        .intern-list li,
+        .project-list li {
+            padding: 0.6em 0;
+            border-bottom: 1px solid #f0f0f0;
+            line-height: 1.6;
+        }
+        .news-list li:last-child,
+        .pub-list > li:last-child,
+        .award-list li:last-child,
+        .edu-list li:last-child,
+        .talk-list li:last-child,
+        .intern-list li:last-child,
+        .project-list li:last-child {
+            border-bottom: none;
+        }
+        .date-tag {
+            display: inline-block;
+            background: #e8f0fe;
+            color: #1a56b8;
+            font-size: 0.82em;
+            padding: 0.15em 0.6em;
+            border-radius: 3px;
+            margin-right: 0.5em;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        .badge-journal {
+            display: inline-block;
+            background: var(--badge-bg);
+            color: var(--badge-text);
+            font-size: 0.78em;
+            padding: 0.15em 0.5em;
+            border-radius: 3px;
+            margin-right: 0.3em;
+            font-weight: 600;
+        }
+        .badge-journal.q1 { background: #d32f2f; }
+        .badge-journal.q2 { background: #e67e22; }
+        .badge-journal.csci { background: #5c6bc0; }
+
+        /* ====== Paper Box ====== */
+        .paper-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5em;
+            padding: 1.5em 0;
+            border-bottom: 1px solid #efefef;
+            align-items: flex-start;
+        }
+        .paper-box-image {
+            flex: 0 0 200px;
+            max-width: 250px;
+        }
+        .paper-box-image img {
+            width: 100%;
+            box-shadow: 2px 2px 6px #aaa;
+            border-radius: 3px;
+        }
+        .paper-box-text {
+            flex: 1;
+            min-width: 260px;
+        }
+        .paper-box-text .paper-title {
+            font-size: 1.05em;
+            font-weight: 600;
+            margin-bottom: 0.3em;
+        }
+        .paper-box-text .paper-authors {
+            font-size: 0.9em;
+            color: var(--text-light);
+            margin-bottom: 0.3em;
+        }
+        .paper-box-text .paper-authors strong {
+            color: #222;
+        }
+        .paper-box-text .paper-meta {
+            font-size: 0.85em;
+            color: #888;
+        }
+
+        /* ====== About Me ====== */
+        .about-text {
+            font-size: 0.98em;
+            line-height: 1.8;
+            color: #444;
+        }
+        .research-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6em;
+            margin: 1em 0;
+        }
+        .research-tag {
+            display: inline-block;
+            background: var(--highlight);
+            color: #1a56b8;
+            padding: 0.3em 0.9em;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        /* ====== Project ====== */
+        .project-entry {
+            padding: 1em 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .project-entry:last-child {
+            border-bottom: none;
+        }
+        .project-entry h3 {
+            font-size: 1em;
+            margin-bottom: 0.4em;
+        }
+        .project-entry p {
+            font-size: 0.9em;
+            color: #555;
+            margin: 0.3em 0;
+        }
+
+        /* ====== Skills bar ====== */
+        .skill-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5em;
+        }
+        .skill-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        .skill-group h3 {
+            font-size: 0.95em;
+            margin-bottom: 0.5em;
+            color: #444;
+        }
+        .skill-group ul {
+            list-style: disc;
+            padding-left: 1.2em;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        /* ====== Footer ====== */
+        .site-footer {
+            text-align: center;
+            padding: 2em;
+            color: #999;
+            font-size: 0.82em;
+            border-top: 1px solid var(--border);
+            margin-top: 3em;
+        }
+
+        /* ====== Responsive ====== */
+        @media (max-width: 900px) {
+            #main {
+                flex-direction: column;
+                padding: 0 1em;
+            }
+            .sidebar {
+                flex: none;
+                width: 100%;
+                position: static;
+            }
+            .profile_box {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1.5em;
+                text-align: left;
+                align-items: center;
+            }
+            .author__avatar {
+                width: 100px;
+                height: 125px;
+                margin-bottom: 0;
+            }
+            .author__urls {
+                display: none;
+            }
+            .paper-box {
+                flex-direction: column;
+            }
+            .paper-box-image {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .greedy-nav a {
+                font-size: 0.78em;
+                padding: 0.5em 0.6em;
+            }
+            .masthead__inner-wrap {
+                padding: 0 0.8em;
+            }
+            .page__content h1 {
+                font-size: 1.3em;
+            }
+            .author__avatar {
+                width: 80px;
+                height: 100px;
+            }
+        }
+
+        /* ====== Print ====== */
+        @media print {
+            .masthead, .sidebar { display: none; }
+            #main { display: block; }
+            .page { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ====== Masthead ====== -->
+<div class="masthead">
+    <div class="masthead__inner-wrap">
+        <nav class="greedy-nav">
+            <span class="masthead__menu-item masthead__menu-home-item"><a href="#about-me">🏠 Homepage</a></span>
+            <a href="#about-me">About Me</a>
+            <a href="#-news">News</a>
+            <a href="#-educations">Education</a>
+            <a href="#-publications">Publications</a>
+            <a href="#-projects">Projects</a>
+            <a href="#-honors-and-awards">Awards</a>
+            <a href="#-internships">Internship</a>
+        </nav>
+    </div>
+</div>
+
+<!-- ====== Main ====== -->
+<div id="main">
+
+    <!-- ====== Sidebar ====== -->
+    <aside class="sidebar">
+        <div class="profile_box">
+            <img src="photo.jpg" class="author__avatar" alt="赵建亚 Jianya Zhao">
+            <div class="author__name">赵建亚</div>
+            <div class="author__name_en">Jianya Zhao</div>
+            <div class="author__bio">
+                暨南大学伯明翰大学联合学院 经济统计学<br>
+                上海交通大学医学院 学术型硕士（拟录取）
+            </div>
+            <ul class="author__urls">
+                <li><i class="fa-solid fa-location-dot"></i> 广州 / 山东聊城</li>
+                <li><i class="fa-solid fa-envelope"></i> <a href="mailto:Jacob231015@outlook.com">Jacob231015@outlook.com</a></li>
+                <li><i class="fa-brands fa-google"></i> <a href="#">Google Scholar</a></li>
+            </ul>
+            <div class="author__urls_sm">
+                <a href="mailto:Jacob231015@outlook.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                <a href="#" title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ====== Content ====== -->
+    <article class="page">
+        <div class="page__content">
+
+            <!-- ====== About Me ====== -->
+            <span class="anchor" id="about-me"></span>
+            <h1>👤 About Me</h1>
+            <p class="about-text">
+                我目前就读于<b>暨南大学</b>经济统计学专业（与<b>伯明翰大学</b>数学与应用数学双学位），GPA <b>4.12/5</b>。
+                已推免拟录取至<b>上海交通大学</b>公共卫生与预防医学专业攻读硕士学位（2026年秋季入学），师从<b>李国红院长</b>。
+            </p>
+            <p class="about-text" style="margin-top:0.8em;">
+                我的本科研究方向涵盖<b>数据科学与农业、环境领域的交叉</b>，未来研究生将聚焦于<b>智慧医疗、老年人与婴幼儿健康、全球健康与全健康</b>。
+                熟练掌握 R 与 Python，擅长统计建模、机器学习与数据挖掘。
+                截至目前，以第一/第二作者身份在<b>CSSCI、SSCI 及 SCI</b> 发表论文 <b>6</b> 篇，另有多篇在投。
+                曾主持省级大创项目 <b>2</b> 项、攀登计划项目 <b>1</b> 项。曾获<b>比亚迪、东莞信托</b>等多项奖学金。
+            </p>
+            <div class="research-tags">
+                <span class="research-tag">智慧医疗</span>
+                <span class="research-tag">全球健康与全健康</span>
+                <span class="research-tag">健康医疗大数据</span>
+                <span class="research-tag">数据科学</span>
+                <span class="research-tag">机器学习</span>
+                <span class="research-tag">统计建模</span>
+                <span class="research-tag">农业与环境的交叉</span>
+            </div>
+
+            <!-- ====== News ====== -->
+            <span class="anchor" id="-news"></span>
+            <h1>🔥 News</h1>
+            <ul class="news-list">
+                <li><span class="date-tag">2026.06</span> 🎉 获评暨南大学优秀毕业生、暨南大学"有作为、有贡献"毕业生</li>
+                <li><span class="date-tag">2025.10</span> 🎉 获推免拟录取至上海交通大学公共卫生与预防医学专业攻读硕士</li>
+            </ul>
+
+            <!-- ====== Education ====== -->
+            <span class="anchor" id="-educations"></span>
+            <h1>📖 Education</h1>
+            <ul class="edu-list">
+                <li>
+                    <span class="date-tag">2026.09 - 2029.06</span>
+                    <strong>上海交通大学</strong> | 硕士（推免拟录取）| 公共卫生与预防医学 &nbsp; | &nbsp; 导师：李国红院长<br>
+                    <span style="font-size:0.88em;color:#888;">🏅 夏令营优秀营员 · 推免生一等学业奖学金</span>
+                </li>
+                <li>
+                    <span class="date-tag">2022.09 - 2026.06</span>
+                    <strong>暨南大学</strong> | 本科 | 经济统计学 &nbsp; | &nbsp; GPA 4.12/5<br>
+                    <span style="font-size:0.88em;color:#888;">🏅 比亚迪奖学金 · 东莞信托奖学金 · 暨南大学优秀学生奖学金 · 优秀学生骨干 · 优秀毕业生</span>
+                </li>
+                <li>
+                    <span class="date-tag">2022.09 - 2026.06</span>
+                    <strong>伯明翰大学 (University of Birmingham)</strong> | 本科 | Applied Mathematics with Statistics<br>
+                    <span style="font-size:0.88em;color:#888;">🏅 伯明翰大学暑期科研奖学金</span>
+                </li>
+            </ul>
+            <p style="margin-top:0.8em; font-size:0.9em; color:#555;">
+                <strong>核心课程：</strong>多元微积分与向量分析（98）、随机过程（96）、统计软件（95）、整数规划及组合优化（95）、
+                抽样技术（94）、金融经济统计方法（94）、金融数学（94）、数学经济建模（93）
+            </p>
+
+            <!-- ====== Publications ====== -->
+            <span class="anchor" id="-publications"></span>
+            <h1>📝 Publications <span style="font-size:0.7em;font-weight:400;color:#888;">(* 通讯作者)</span></h1>
+
+            <!-- Paper 1 -->
+            <div class="paper-box">
+                <div class="paper-box-image">
+                    <img src="foods.png" alt="Foods 2025 framework" style="width:100%;box-shadow:2px 2px 6px #aaa;border-radius:3px;">
+                </div>
+                <div class="paper-box-text">
+                    <div class="paper-title">Spatiotemporal Analysis of the Carbon Footprint of Soybean Production in China Based on Life Cycle Assessment</div>
+                    <div class="paper-authors">Guoguo Ning, Fanhao Yang, <strong>Jianya Zhao*</strong>, Shu Wang*</div>
+                    <div class="paper-meta">
+                        <span class="badge-journal q1">SCI Q1</span> <i>Foods</i>, 已接收 &nbsp;|&nbsp; 共同通讯作者
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paper 2 -->
+            <div class="paper-box">
+                <div class="paper-box-image">
+                    <img src="Increase in Grain Production Potential of China Under 2030 Well-Facilitated Farmland Construction Goal.png" alt="Land 2025 framework" style="width:100%;box-shadow:2px 2px 6px #aaa;border-radius:3px;">
+                </div>
+                <div class="paper-box-text">
+                    <div class="paper-title">Increase in Grain Production Potential of China Under 2030 Well-Facilitated Farmland Construction Goal</div>
+                    <div class="paper-authors"><strong>Jianya Zhao</strong>; Fanhao Yang; Yanglan Zhang; Shu Wang</div>
+                    <div class="paper-meta">
+                        <span class="badge-journal q2">SSCI Q2</span> <i>Land</i>, 2025, 14(8), 1538 &nbsp;|&nbsp; 第一作者
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paper 3 -->
+            <div class="paper-box">
+                <div class="paper-box-image">
+                    <img src="Carbon and Nitrogen Footprints of Major Corn Production Systems in China.webp" alt="Frontiers 2025 framework" style="width:100%;box-shadow:2px 2px 6px #aaa;border-radius:3px;">
+                </div>
+                <div class="paper-box-text">
+                    <div class="paper-title">Carbon and Nitrogen Footprints of Major Corn Production Systems in China</div>
+                    <div class="paper-authors"><strong>Jianya Zhao</strong>; Fanhao Yang; Yanglan Zhang; Shu Wang</div>
+                    <div class="paper-meta">
+                        <span class="badge-journal q2">SCI Q2</span> <i>Frontiers in Sustainable Food Systems</i>, 9:1647853 &nbsp;|&nbsp; 第一作者
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paper 4 -->
+            <div class="paper-box">
+                <div class="paper-box-image">
+                    <img src="Improved Ecological Risk.jpg" alt="ETI 2025 framework" style="width:100%;box-shadow:2px 2px 6px #aaa;border-radius:3px;">
+                </div>
+                <div class="paper-box-text">
+                    <div class="paper-title">Improved Ecological Risk Assessment of Heavy Metal Contamination using Machine Learning-Corrected Portable XRF Measurements in a High-Sulfur Mining Landscape</div>
+                    <div class="paper-authors">Changxiang Li, Dongxu Xue, Xuezhi Ren, <strong>Jianya Zhao</strong>, Hanting Wang, Siyao Zhang, Touqeer Premy, Xiaochen Chen, Mei Hong, Chunpeng Zhang</div>
+                    <div class="paper-meta">
+                        <span class="badge-journal q1">SCI Q1</span> <i>Environmental Technology & Innovation</i>, 2025, 104653 &nbsp;|&nbsp; 第三作者
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paper 5 -->
+            <div class="paper-box">
+                <div class="paper-box-image">
+                    <img src="Optimizing multi-metal sam.png" alt="JES framework" style="width:100%;box-shadow:2px 2px 6px #aaa;border-radius:3px;">
+                </div>
+                <div class="paper-box-text">
+                    <div class="paper-title">Optimizing Multi-Metal Sampling Networks for Cultivated Soils: A Framework Integrating Regression Kriging and Spatial Simulated Annealing</div>
+                    <div class="paper-authors">Yuzhi Zhu, <strong>Jianya Zhao</strong>, Fanhao Yang, Yuxin Duan, Xuezhi Ren, Chunpeng Zhang, Nan Wei</div>
+                    <div class="paper-meta">
+                        <span class="badge-journal q1">SCI Q1</span> <i>Journal of Environmental Sciences</i>, 小修后待接收 &nbsp;|&nbsp; 第二作者
+                    </div>
+                </div>
+            </div>
+
+            <p style="margin-top:1em;font-size:0.88em;color:#888;">
+                📌 另有多篇论文在投。截至目前以第一、第二、第三作者身份在 CSSCI、SSCI、SCI 期刊共发表论文 6 篇。
+            </p>
+
+            <!-- ====== Projects ====== -->
+            <span class="anchor" id="-projects"></span>
+            <h1>🔬 Projects</h1>
+
+            <div class="project-entry">
+                <h3>🏗️ 基于机器学习堆叠模型和政策模拟的双碳目标路径探索——以广东省为例</h3>
+                <p><span class="date-tag">2025.03 - 2027.03</span> 广东省科技创新战略专项资金（攀登计划）立项（pdjh2025bg035）&nbsp;|&nbsp; 资助 3 万 &nbsp;|&nbsp; <strong>主持</strong></p>
+                <div style="display:flex;flex-wrap:wrap;gap:1.5em;margin:0.8em 0;">
+                    <div style="flex:0 0 260px;max-width:300px;">
+                        <img src="项目.png" alt="项目示意图" style="width:100%;box-shadow:2px 2px 6px #aaa;border-radius:3px;">
+                    </div>
+                    <div style="flex:1;min-width:260px;">
+                        <p><strong>背景：</strong>对广东省碳排放的研究仍然缺乏对经济、气候和环境影响等普遍和地区特定多维因素综合影响的系统探索。大多数现有研究仅以单一方式分析碳排放因素和预测，无法揭示复杂的非线性关系。</p>
+                        <p><strong>贡献：</strong>对广东省碳排放特征及其影响因素进行全面深入分析，开发并应用了一种创新的机器学习堆叠模型，采用可解释的 SHAP 值（博弈论）来评估各特征重要性。使用蒙特卡洛模拟方法进行不同政策情景模拟，为该地区低碳转型提供可行的政策指导。</p>
+                        <p><strong>个人职责：</strong>负责整个项目开展，撰写项目申报书，使用 Python 进行特征工程、模型构建、参数调整以及多种机器学习方法性能的比较，同时利用蒙特卡洛模拟进行情景分析。</p>
+                    </div>
+                </div>
+                <p style="font-size:0.85em;color:#888;">关键词：机器学习堆叠模型 · 蒙特卡洛模拟 · SHAP · 碳排放预测 · 双碳目标</p>
+            </div>
+
+            <div class="project-entry">
+                <h3>🌾 "从农田到云端"——中国全尺度农业数字水平发展评价体系与智能决策支持系统</h3>
+                <p><span class="date-tag">2024.05 - 2025.05</span> 大学生创新创业训练计划项目省级立项（S202410559033）&nbsp;|&nbsp; <strong>主持</strong> &nbsp;|&nbsp; 优秀结项</p>
+                <p><strong>背景：</strong>目前仍缺乏一套科学、系统的评价体系来衡量各区域农业数字化的实际进展和效果。传统的农业评价体系多集中于宏观指标，而对于数字化程度、信息化贡献率等新型指标的融合并不充分。</p>
+                <p><strong>贡献：</strong>分析数字经济发展与高质量农业发展的关系，构建数字农业发展综合评价指标体系，为我国农业数字化和农村经济发展提供科学依据和实践指导。</p>
+                <p><strong>个人职责：</strong>负责整个项目开展，撰写项目申报书，运用统计分析如相关性分析、主成分分析（PCA）、聚类分析等方法，量化评价我国各省数字农业发展水平。同时参与开发乡村振兴大数据分析云计算平台。</p>
+                <p style="font-size:0.85em;color:#888;">关键词：数字农业 · PCA · 聚类分析 · 综合评价 · 云计算平台</p>
+            </div>
+
+            <!-- ====== Honors and Awards ====== -->
+            <span class="anchor" id="-honors-and-awards"></span>
+            <h1>🎖 Honors and Awards</h1>
+
+            <h2>🏆 竞赛获奖</h2>
+            <ul class="award-list">
+                <li><span class="date-tag">2024.12</span> CCF数字农业分会年会暨第二届CCF数字农业大会学生学术秀本科组 <strong>三等奖</strong>（1/1）</li>
+                <li><span class="date-tag">2024.10</span> 第七届"智享杯"全国高校经管类实验教学案例大赛全国总决赛 <strong>全国三等奖</strong>（1/6）</li>
+                <li><span class="date-tag">2024.08</span> 科研案例"如何对我国各省农业数字经济发展水平进行综合评价"入选中国经管实验教学案例库（1/6）</li>
+                <li><span class="date-tag">2024.08</span> 2024年中国国际大学生创新大赛（原互联网+）暨南大学 <strong>金奖</strong>（5/6）</li>
+                <li><span class="date-tag">2023.12 / 2024.12</span> 高教社杯全国大学生数学建模竞赛 <strong>广东省二等奖</strong>（1/3，连续两年）</li>
+                <li><span class="date-tag">2023.08</span> 全国大学生节能减排社会实践与科技竞赛 <strong>全国三等奖</strong>（1/7）</li>
+                <li><span class="date-tag">2023.01</span> APMCM亚太地区大学生数学建模竞赛 <strong>三等奖</strong>（1/1）</li>
+            </ul>
+
+            <h2>🎓 奖学金与荣誉称号</h2>
+            <ul class="award-list">
+                <li><span class="date-tag">2026.06</span> 暨南大学优秀毕业生</li>
+                <li><span class="date-tag">2026.06</span> 暨南大学"有作为、有贡献"毕业生</li>
+                <li><span class="date-tag">2025.06</span> 上海交通大学夏令营优秀营员、推免生一等学业奖学金</li>
+                <li><span class="date-tag">2025.03</span> 暨南大学伯明翰大学联合学院学术新星奖学金</li>
+                <li><span class="date-tag">2024.12</span> 比亚迪奖学金</li>
+                <li><span class="date-tag">2024.12</span> 东莞信托奖学金</li>
+                <li><span class="date-tag">2024.10</span> 暨南大学优秀学生奖学金</li>
+                <li><span class="date-tag">2024.07</span> 伯明翰大学暑期科研奖学金</li>
+                <li><span class="date-tag">2024.05</span> 暨南大学优秀学生骨干荣誉称号</li>
+            </ul>
+
+            <!-- ====== Internship ====== -->
+            <span class="anchor" id="-internships"></span>
+            <h1>💼 Internship & Campus</h1>
+
+            <h2>实习经历</h2>
+            <ul class="intern-list">
+                <li>
+                    <span class="date-tag">2024.07 - 2024.08</span>
+                    <strong>中国建设银行广东省分行</strong> | 金融科技实习生（公司业务部）| 广州<br>
+                    <span style="font-size:0.88em;color:#666;">
+                        参与自主创新科技金融项目的申报，撰写项目申报书；收集和整理合作公司背景信息；
+                        利用 Python 对 S&P500 指数进行时间序列波动性预测，挖掘市场波动趋势。
+                    </span>
+                </li>
+            </ul>
+
+            <h2>校园组织经历</h2>
+            <ul class="intern-list">
+                <li>
+                    <span class="date-tag">2024.07 - 2024.10</span>
+                    <strong>暨南大学伯明翰大学联合学院</strong> | 新生总助班<br>
+                    <span style="font-size:0.88em;color:#666;">
+                        主导策划并成功举办 10+ 场新生系列活动，为近 300 名新生提供全面的入学指导。
+                    </span>
+                </li>
+                <li>
+                    <span class="date-tag">2023.06 - 2024.06</span>
+                    <strong>暨南大学招生宣传协会</strong> | 综合行政部部长<br>
+                    <span style="font-size:0.88em;color:#666;">
+                        全面负责年度招生宣传后勤保障，精准支持 30+ 场线上线下宣讲会，累计调配物资超 5000 份，零延误零差错。
+                    </span>
+                </li>
+            </ul>
+
+            <!-- ====== Skills ====== -->
+            <span class="anchor" id="-skills"></span>
+            <h1>🛠 Skills & More</h1>
+            <div class="skill-section">
+                <div class="skill-group">
+                    <h3>编程与数据分析</h3>
+                    <ul>
+                        <li>Python（统计分析、机器学习、数据挖掘）</li>
+                        <li>R（统计建模、数据可视化）</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3>办公与工具</h3>
+                    <ul>
+                        <li>Word / Excel / PowerPoint</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3>语言能力</h3>
+                    <ul>
+                        <li>中文（母语）</li>
+                        <li>英语四级 558、六级 525</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="margin-top:1em; font-size:0.9em; color:#666;">
+                🌟 积极参与 20 余场志愿活动，志愿时长累计超 140 小时。具有强烈好奇心、快速学习能力和敏锐洞察力，
+                善于从细节中发现问题并提供创新解决方案。
+            </p>
+
+        </div>
+    </article>
+</div>
+
+<!-- ====== Footer ====== -->
+<footer class="site-footer">
+    &copy; 2026 赵建亚 Jianya Zhao &nbsp;|&nbsp;
+    Last updated: 2026-05 &nbsp;|&nbsp;
+    Powered by <a href="https://github.com/RayeRen/acad-homepage.github.io">AcadHomepage</a>
+</footer>
+
+</body>
+</html>
